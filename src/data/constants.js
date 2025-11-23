@@ -1,16 +1,15 @@
 export const Bio = {
   name: "Chiru Chaitanya",
   roles: [
-    "CS Student",
-    "Software Aspirant",
-    "AI Aspirant",
+    "Software Developer",
     "Programmer",
+    "Python FullStack Dev",
   ],
   description:
     "I am a motivated and versatile individual, always eager to take on new challenges. With a passion for learning I am dedicated to delivering high-quality results. With a positive attitude and a growth mindset, I am ready to make a meaningful contribution and achieve great things.",
   github: "https://github.com/chiruchaitanya77",
   resume:
-    "https://drive.google.com/file/d/1tDyJKL6CDe6GbgagXUW1CxG4wIbhNcrk/view",
+    "https://drive.google.com/file/d/1e59rmlbdSwbTa3H85J6WrVeZ8LSYSrCO/view",
   linkedin: "https://www.linkedin.com/in/chiru-chaitanya/",
   //twitter: "",
   insta: "https://www.instagram.com/chiru_rkst_7/",
@@ -100,7 +99,7 @@ export const skills = [
       {
         name: "Django",
         image:
-          "https://img.logo.dev/djangoproject.com",
+          "django.png",
       },
       {
         name: "MySQL",
@@ -127,6 +126,7 @@ export const skills = [
     skills: [
       {
         name: "AWS",
+
         image:
           "https://download.logo.wine/logo/Amazon_Web_Services/Amazon_Web_Services-Logo.wine.png",
       },
@@ -217,7 +217,7 @@ export const skills = [
         name: "Keras",
         image:
           // "https://miro.medium.com/v2/resize:fit:600/1*DKu_54iqz6C-p6ndo7rO3g.png",
-        'https://img.logo.dev/keras.io',
+        'https://img.logo.dev/keras.io?token=live_6a1a28fd-6420-4492-aeb0-b297461d9de2&size=64&retina=true&format=png&theme=dark',
       },
       {
         name: "Jupyter",
@@ -227,7 +227,7 @@ export const skills = [
       {
         name: "PyTorch",
         image:
-          "https://img.logo.dev/pytorch.org",
+          "https://img.logo.dev/pytorch.org?token=live_6a1a28fd-6420-4492-aeb0-b297461d9de2&size=64&retina=true&format=png&theme=dark",
       },
       {
         name: "Google Colab",
@@ -257,7 +257,7 @@ export const skills = [
       {
         name: "Netlify",
         image:
-          "https://seeklogo.com/images/N/netlify-logo-BD8F8A77E2-seeklogo.com.png",
+          "https://img.logo.dev/netlify.com?token=live_6a1a28fd-6420-4492-aeb0-b297461d9de2&size=64&retina=true&format=png&theme=dark",
       },
       {
         name: "Vercel",
@@ -294,16 +294,26 @@ export const skills = [
 ];
 
 export const experiences = [
-  {
-    id: 0,
-    img: "PowerBI.png",
-    role: "",
-    company: "",
-    date: "",
-    desc: "",
-    skills: [", "],
-    doc: "",
-  },
+    {
+      id: 0,
+      img: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/experience%2Fgreenko.jpeg?alt=media&token=a2e8b492-0ec5-4b5e-860f-b43b8ae3051c",
+      role: "SAP MM Operations and Management Consultant",
+      company: "Greenko Group",
+      date: "Sep 2021 – Apr 2022",
+      desc: "Maintained and operated Wind Energy Converter systems ensuring continuous uptime. Streamlined SAP logistics and financial operations by interfacing SAP systems via ALE/IDocs. Developed custom SAP workflows and RF enhancements for real-time material tracking, automated purchase requisition notifications, and streamlined procurement processes, improving efficiency across plant operations.",
+      skills: ["SAP MM", "WM", "ALE/IDocs", "SAP Workflow", "Custom Transaction Development", "Enhancement Framework", "RF Framework"],
+      doc: ""
+    },
+    {
+      id: 1,
+      img: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/experience%2Faccufy.png?alt=media&token=c84169ad-88de-4af4-901d-66d3c30b69d0",
+      role: "Python Full Stack Web Developer",
+      company: "Accufy, Hyderabad, India",
+      date: "Apr 2025 – Present",
+      desc: "Developed and maintained full-stack financial web applications like ITR1, INVGPT, and Document Processors. Enhanced data automation using AI to process financial documents into JSON and CSV formats. Built frontends with React Vite, Tailwind, and integrated secure backends using FastAPI and Postgres with ORM. Implemented Razorpay SSO payments, ERI API integrations, and AI-powered tax optimization models. Deployed scalable services on AWS EC2 using Docker.",
+      skills: ["Python", "FastAPI", "ReactJS", "TailwindCSS", "SQLAlchemy", "PostgreSQL", "AWS", "Docker", "Razorpay API", "REST API"],
+      doc: ""
+    }
 ];
 
 export const education = [
@@ -338,15 +348,15 @@ export const education = [
 
 export const projects = [
   {
-    id: 1,
-    title: "QR Code-Based Attendance System",
-    date: "Feb 2025",
-    description: "Developed a Django-based attendance system that automates student attendance tracking using QR codes. The system generates unique QR codes for students, which can be scanned via a mobile/web application for real-time attendance marking. It integrates Django for the backend, OpenCV for QR scanning, and a user-friendly web interface for students and administrators.",
-    image: "QR-School.png",
-    tags: ["Python", "Django", "OpenCV", "QR Code", "OAuth" , "Sheets API", "Drive API"],
+    "id": 1,
+    title: "MERN Stack Social App",
+    date: "Mar 2025",
+    description: "Developed a feature-rich social networking web application using the MERN stack, enabling users to connect and engage seamlessly. Users can register and log in securely, explore posts from all users, and manage their own profile details. The platform supports real-time chatting using Socket.io, friend management, and interactive post creation with text, images, or videos. The UI is built using Material UI, offering a responsive and visually appealing experience, with a theme toggle for light and dark modes. Firebase is integrated for image storage, ensuring fast and scalable media handling. Deployed the backend on Vercel and the frontend on Netlify, optimizing performance and user experience.",
+    image: "Social.png",
+    tags: ["MongoDB", "Express.js", "React", "Node.js", "Socket.io", "Redux", "Firebase", "MUI"],
     category: "web app",
-    github: "https://github.com/chiruchaitanya77/QR_Attendance_System",
-    webapp: "https://qr-attendance-system-19l7.onrender.com/"
+    github: "https://github.com/chiruchaitanya77/SocialApp",
+    webapp: "https://socialappbychiru.netlify.app/"
   },
   {
     id: 2,
@@ -355,7 +365,7 @@ export const projects = [
     description: "Developed a DeepLearning based PPE Compliance Detection System uses YOLOv8 to detect helmets, vests, gloves, and shoes in real-time from CCTV footage, ensuring workplace safety. Built using Python Django and HTML/CSS, JS, it alerts managers of violations and simplifies compliance monitoring.",
     image: "Poster.png",
     tags: ["Python", "Django","YOLOv8", "OpenCV", "Deep Learning", "SQLite3" , "Torchvision", "Jinja2", "Drive API", "Pygame", "Pillow"],
-    category: ["web app", "machine learning"],
+    category: ["machine learning"],
     github: "https://github.com/chiruchaitanya77/PPE_Detection_System",
     webapp: "https://comingsoonpg.netlify.app/"
   },
@@ -369,7 +379,7 @@ export const projects = [
         "obj_thumbnail.png",
     tags: ["Python", "Keras", "TensorFlow", "VGG16", "Pickle", "React"],
     // category: "web app",
-    category: ["web app", "machine learning"],
+    category: ["machine learning"],
     github: "https://github.com/chiruchaitanya77/Object_Detection_and_Tracking_Web_App",
     webapp: "https://objectdetectionandtrackingwebapp.onrender.com",
   },
@@ -386,6 +396,29 @@ export const projects = [
     github: "https://github.com/chiruchaitanya77/Face_Detection_ML_Python",
     webapp: "https://comingsoonpg.netlify.app/",
   },
+  {
+    id: 5,
+    title: "QR Code-Based Attendance System",
+    date: "Feb 2025",
+    description: "Developed a Django-based attendance system that automates student attendance tracking using QR codes. The system generates unique QR codes for students, which can be scanned via a mobile/web application for real-time attendance marking. It integrates Django for the backend, OpenCV for QR scanning, and a user-friendly web interface for students and administrators.",
+    image: "QR-School.png",
+    tags: ["Python", "Django", "OpenCV", "QR Code", "OAuth" , "Sheets API", "Drive API"],
+    category: "web app",
+    github: "https://github.com/chiruchaitanya77/QR_Attendance_System",
+    webapp: "https://qr-attendance-system-19l7.onrender.com/"
+  },
+  {
+    id: 6,
+    title: "AI-Powered Document Question-Answering System",
+    date: "Apr 2025",
+    description: "Built a production-ready AI-driven Document Question-Answering (QA) system capable of ingesting PDFs, text files, and structured documents, converting them into vector embeddings, and answering user queries with high accuracy. Implemented a modular Python architecture with pipelines for document ingestion, intelligent text splitting, metadata extraction, embedding generation, and vector storage. Integrated a custom LLM pipeline using Google Gemini with a prompt-builder engine to deliver context-aware, document-grounded answers. Exposed REST APIs for document ingestion, querying, and admin operations. Utilized SQLAlchemy for database models and sessions, along with robust logging, configuration management, and utilities for reliable deployment. The system enables organizations to transform their documents into a fully interactive and searchable knowledge base.",
+    image: "ai-qa-system.png",
+    tags: ["Python", "LLM", "Gemini API", "OpenAI", "Embeddings", "Vector Store", "NLP", "RAG", "FastAPI", "SQLAlchemy", "Document Processing"],
+    category: ["machine learning"],
+    github: "",
+    webapp: "https://comingsoonpg.netlify.app/"
+  }
+
   // {
   //   id: 11,
   //   title: "DecisionHub",

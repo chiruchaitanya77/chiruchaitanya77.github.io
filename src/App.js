@@ -1,12 +1,12 @@
 import styled, { ThemeProvider } from "styled-components";
-import { darkTheme } from "./utils/Themes";
+import { darkTheme, lightTheme } from "./utils/Themes";
 import Navbar from "./components/Navbar";
 import { BrowserRouter } from "react-router-dom";
 import Hero from "./components/sections/Hero";
 import Skills from "./components/sections/Skills";
-// import Experience from "./components/sections/Experience";
+import Experience from "./components/sections/Experience";
 import Education from "./components/sections/Education";
-//import StartCanvas from "./components/canvas/Stars";
+import StartCanvas from "./components/canvas/Stars";
 import { AnimatePresence } from "framer-motion";
 import Projects from "./components/sections/Projects";
 import Certificates from "./components/sections/Certificates";
@@ -41,17 +41,22 @@ const Wrapper = styled.div`
 
 function App() {
   const [openModal, setOpenModal] = useState({ state: false, project: null });
+  const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const toggleTheme = () => {
+    setIsDarkTheme((prev) => !prev);
+  };
+
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <BrowserRouter>
-        <Navbar />
+        <Navbar toggleTheme={toggleTheme} isDarkTheme={isDarkTheme}/>
         <Body>
-          {/*<StartCanvas />*/}
+          <StartCanvas />
           <AnimatePresence>
             <Hero />
             <Wrapper>
               <Skills />
-              {/*<Experience />*/}
+              <Experience />
             </Wrapper>
             <Projects openModal={openModal} setOpenModal={setOpenModal} />
             <Wrapper>

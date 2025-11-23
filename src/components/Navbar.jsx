@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Link as LinkR } from "react-router-dom";
+import {Link, Link as LinkR} from "react-router-dom";
 import styled, { useTheme } from "styled-components";
 import { Bio } from "../data/constants";
 import { MenuRounded } from "@mui/icons-material";
+import { FiSun, FiMoon } from "react-icons/fi";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -26,16 +27,47 @@ const NavbarContainer = styled.div`
   justify-content: space-between;
   font-size: 1rem;
 `;
-const NavLogo = styled(LinkR)`
+
+const NavLogo = styled(Link)`
   width: 80%;
   padding: 0 6px;
   font-weight: 500;
-  font-size: 18px;
   text-decoration: none;
   color: aquamarine;
   text-shadow: 0 0 5px #ff00ff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
   animation: glow 1.5s infinite alternate;
+  font-size: 16px;
   
+  .large-letter {
+    font-size: 24px;
+  }
+`;
+const LogoText = () => {
+  const text = "CHIRU'S PORTFOLIO";
+  return text.split('').map((char, index) => {
+    const isLarge = char === 'C' || char === 'P';
+    return (
+        <span key={index} className={isLarge ? 'large-letter' : ''}>
+        {char}
+      </span>
+    );
+  });
+};
+
+const ThemeToggleButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: ${({ theme }) => theme.text_primary};
+  font-size: 24px;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 const NavItems = styled.ul`
@@ -59,10 +91,11 @@ const NavLink = styled.a`
   transition: all 0.2s ease-in-out;
   text-decoration: none;
   &:hover {
-    color: ${({ theme }) => theme.primary};
-    //text-shadow: 0 0 5px #fff, 0 0 5px #fff, 0 0 2px #fff, 0 0 4px #fff;
+    color: white;
+    text-shadow: 0 0 5px #854CE6, 0 0 5px #854CE6, 0 0 2px #854CE6, 0 0 4px #854CE6;
   }
 `;
+
 
 const ButtonContainer = styled.div`
   width: 80%;
@@ -71,6 +104,13 @@ const ButtonContainer = styled.div`
   justify-content: end;
   align-items: center;
   padding: 0 6px;
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+`;
+
+const BtnContainer = styled.div`
+  margin-left: 5%;
   @media screen and (max-width: 768px) {
     display: none;
   }
@@ -132,13 +172,13 @@ const MobileMenu = styled.ul`
   z-index: ${({ isOpen }) => (isOpen ? "1000" : "-1000")};
 `;
 
-const Navbar = () => {
+const Navbar = ({ toggleTheme, isDarkTheme }) => {
   const [isOpen, setIsOpen] = useState(false);
   const theme = useTheme();
   return (
     <Nav>
       <NavbarContainer>
-        <NavLogo to="/" >Chiru's Portfolio</NavLogo>
+        <NavLogo to="/" > <LogoText/> </NavLogo>
 
         <MobileIcon onClick={() => setIsOpen(!isOpen)}>
           <MenuRounded style={{ color: "inherit" }} />
@@ -147,7 +187,7 @@ const Navbar = () => {
         <NavItems>
           <NavLink href="#About">About</NavLink>
           <NavLink href="#Skills">Skills</NavLink>
-          {/*<NavLink href="#Experience">Experience</NavLink>*/}
+          <NavLink href="#Experience">Experience</NavLink>
           <NavLink href="#Projects">Projects</NavLink>
           <NavLink href="#Certificates">Certificates</NavLink>
           <NavLink href="#Education">Education</NavLink>
@@ -171,6 +211,9 @@ const Navbar = () => {
             >
               Github Profile
             </GithubButton>
+            {/*<ThemeToggleButton onClick={toggleTheme}>*/}
+            {/*  {isDarkTheme ? <FiSun /> : <FiMoon />} Theme*/}
+            {/*</ThemeToggleButton>*/}
           </MobileMenu>
         )}
 
@@ -179,6 +222,11 @@ const Navbar = () => {
             Github Profile
           </GithubButton>
         </ButtonContainer>
+        <BtnContainer>
+        {/*<ThemeToggleButton onClick={toggleTheme}>*/}
+        {/*  {isDarkTheme ? <FiSun /> : <FiMoon />}*/}
+        {/*</ThemeToggleButton>*/}
+        </BtnContainer>
       </NavbarContainer>
     </Nav>
   );
