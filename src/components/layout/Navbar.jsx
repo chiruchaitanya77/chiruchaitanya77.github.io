@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import {Link, Link as LinkR} from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled, { useTheme } from "styled-components";
 import { Bio } from "../../data/constants";
 import { MenuRounded } from "@mui/icons-material";
-import { FiSun, FiMoon } from "react-icons/fi";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -53,22 +52,6 @@ const LogoText = () => {
     );
   });
 };
-
-const ThemeToggleButton = styled.button`
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: ${({ theme }) => theme.text_primary};
-  font-size: 24px;
-  transition: transform 0.3s ease;
-
-  &:hover {
-    transform: scale(1.2);
-  }
-  @media screen and (max-width: 1024px) {
-    font-size: 16px;
-  }
-`;
 
 const NavItems = styled.ul`
   width: 100%;
@@ -172,7 +155,7 @@ const MobileMenu = styled.ul`
   z-index: ${({ isOpen }) => (isOpen ? "1000" : "-1000")};
 `;
 
-const Navbar = ({ toggleTheme, isDarkTheme }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const theme = useTheme();
   return (
@@ -213,9 +196,6 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
             >
               Github Profile
             </GithubButton>
-            {/*<ThemeToggleButton onClick={toggleTheme}>*/}
-            {/*  {isDarkTheme ? <FiSun /> : <FiMoon />} Theme*/}
-            {/*</ThemeToggleButton>*/}
           </MobileMenu>
         )}
 
@@ -224,11 +204,7 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
             Github Profile
           </GithubButton>
         </ButtonContainer>
-        <BtnContainer>
-        {/*<ThemeToggleButton onClick={toggleTheme}>*/}
-        {/*  {isDarkTheme ? <FiSun /> : <FiMoon />}*/}
-        {/*</ThemeToggleButton>*/}
-        </BtnContainer>
+        <BtnContainer />
       </NavbarContainer>
     </Nav>
   );
