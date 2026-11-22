@@ -1,4 +1,3 @@
-import React from "react";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 import styled from "styled-components";
 
@@ -23,7 +22,6 @@ const Body = styled.div`
 `;
 const School = styled.div`
   font-size: 18px;
-  font-weight: 600px;
   color: ${({ theme }) => theme.text_primary + 99};
   @media only screen and (max-width: 768px) {
     font-size: 14px;
@@ -31,7 +29,6 @@ const School = styled.div`
 `;
 const Degree = styled.div`
   font-size: 14px;
-  font-weight: 500px;
   color: ${({ theme }) => theme.text_secondary + 99};
   @media only screen and (max-width: 768px) {
     font-size: 12px;
@@ -39,7 +36,6 @@ const Degree = styled.div`
 `;
 const Date = styled.div`
   font-size: 12px;
-  font-weight: 400px;
   color: ${({ theme }) => theme.text_secondary + 80};
 
   @media only screen and (max-width: 768px) {
@@ -87,7 +83,6 @@ const EducationCard = ({ education }) => {
         display: "flex",
         flexDirection: "column",
         gap: "12px",
-        background: "#1d1836",
         color: "#fff",
         boxShadow: "rgba(23, 92, 230, 0.4) 0px 4px 24px",
         backgroundColor: "rgba(17, 25, 40, 0.83)",

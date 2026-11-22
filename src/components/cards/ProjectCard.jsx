@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { Tilt } from "react-tilt";
 import { trackEvent } from "../../utils/analytics";
@@ -69,7 +68,6 @@ const Title = styled.span`
   max-width: 100%;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  overflow: hidden;
   text-overflow: ellipsis;
 `;
 const Date = styled.span`
