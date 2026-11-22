@@ -1,7 +1,8 @@
-import { CloseRounded, GitHub, LinkedIn } from "@mui/icons-material";
-import { Modal } from "@mui/material";
+import { CloseRounded } from "@mui/icons-material";
+import { IconButton, Modal } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
+import SocialIcon from "../SocialIcon";
 
 const Container = styled.div`
   width: 100%;
@@ -11,64 +12,76 @@ const Container = styled.div`
   left: 0;
   background-color: #000000a7;
   display: flex;
-  align-items: top;
+  align-items: flex-start;
+  padding: clamp(8px, 3vw, 32px);
   justify-content: center;
   overflow-y: scroll;
   transition: all 0.5s ease;
 `;
 
 const Wrapper = styled.div`
-  max-width: 800px;
+  max-width: 960px;
   width: 100%;
   border-radius: 16px;
-  //margin: 50px 12px;
   height: min-content;
   background-color: ${({ theme }) => theme.card};
   color: ${({ theme }) => theme.text_primary};
-  padding: 20px;
+  padding: clamp(16px, 3vw, 32px);
   display: flex;
   flex-direction: column;
   position: relative;
 `;
 
-const Title = styled.div`
-  font-size: 28px;
-  font-weight: 600;
-  color: ${({ theme }) => theme.text_primary};
-  margin: 8px 6px 0 6px;
-  @media only screen and (max-width: 600px) {
-    font-size: 24px;
-    margin: 6px 6px 0 6px;
+const Header = styled.header`
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+
+  h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    line-height: 1.2;
+  }
+
+  p {
+    margin-top: 6px;
+    color: ${({ theme }) => theme.text_secondary};
   }
 `;
 
-const Date = styled.div`
-  font-size: 16px;
-  margin: 2px 6px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary};
-  @media only screen and (max-width: 768px) {
-    font-size: 12px;
+const Overview = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 16px;
+
+  > div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    gap: 12px;
   }
 `;
 
-const Desc = styled.div`
-  font-size: 16px;
-  font-weight: 400;
-  color: ${({ theme }) => theme.text_primary};
-  margin: 8px 6px;
-  @media only screen and (max-width: 600px) {
-    font-size: 14px;
-    margin: 6px 6px;
-  }
+const Desc = styled.p`
+  line-height: 1.65;
+  margin: 0 6px 12px;
 `;
 
 const Image = styled.img`
-  width: 100%;
-  object-fit: cover;
-  border-radius: 12px;
-  margin-top: 30px;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  width: 48%;
+  height: auto;
+  max-height: 320px;
+  object-fit: contain;
+  border-radius: 10px;
+
+  @media (max-width: 700px) {
+    width: 100%;
+  }
 `;
 
 const Label = styled.div`
@@ -79,6 +92,16 @@ const Label = styled.div`
   @media only screen and (max-width: 600px) {
     font-size: 16px;
     margin: 8px 6px;
+  }
+`;
+
+const Highlights = styled.ul`
+  margin: 4px 6px 12px;
+  padding-left: 22px;
+  line-height: 1.55;
+
+  li + li {
+    margin-top: 8px;
   }
 `;
 
@@ -181,32 +204,47 @@ const Button = styled.a`
 `;
 
 const ProjectDetails = ({ openModal, setOpenModal }) => {
-  const project = openModal?.project;
+  const project = openModal.project;
+  const close = () => setOpenModal({ state: false, project: null });
   return (
     <Modal
       open={true}
-      onClose={() => setOpenModal({ state: false, project: null })}
+      onClose={close}
     >
       <Container>
-        <Wrapper>
-          <CloseRounded
-            style={{
-              position: "absolute",
-              top: "10px",
-              right: "20px",
-              cursor: "pointer",
-            }}
-            onClick={() => setOpenModal({ state: false, project: null })}
-          />
-          <Image src={project?.image} />
-          <Title>{project?.title}</Title>
-          <Date>{project.date}</Date>
-          <Tags>
-            {project?.tags.map((tag) => (
-              <Tag>{tag}</Tag>
-            ))}
-          </Tags>
-          <Desc>{project?.description}</Desc>
+        <Wrapper role="dialog" aria-modal="true" aria-labelledby="project-title">
+          <Header>
+            <div>
+              <h2 id="project-title">{project.title}</h2>
+              <p>{project.sector || project.date}</p>
+            </div>
+            <IconButton aria-label="Close project details" onClick={close} sx={{ color: "inherit" }}>
+              <CloseRounded />
+            </IconButton>
+          </Header>
+          <Overview>
+            <Image src={project.image} alt="" onError={(event) => { event.currentTarget.hidden = true; }} />
+            <div>
+              <Desc>{project.description}</Desc>
+              <Tags aria-label="Technologies">
+                {project.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+              </Tags>
+            </div>
+          </Overview>
+          {project.implementation && (
+            <>
+              <Label as="h3">How it works</Label>
+              <Desc>{project.implementation}</Desc>
+            </>
+          )}
+          {project.highlights && (
+            <>
+              <Label as="h3">Project highlights</Label>
+              <Highlights>
+                {project.highlights.map((highlight) => <li key={highlight}>{highlight}</li>)}
+              </Highlights>
+            </>
+          )}
           {project.member && (
             <>
               <Label>Members</Label>
@@ -217,17 +255,19 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
                     <MemberName>{member.name}</MemberName>
                     <a
                       href={member.github}
+                      aria-label={`${member.name} on GitHub`}
                       target="new"
                       style={{ textDecoration: "none", color: "inherit" }}
                     >
-                      <GitHub />
+                      <SocialIcon $platform="GitHub" />
                     </a>
                     <a
                       href={member.linkedin}
+                      aria-label={`${member.name} on LinkedIn`}
                       target="new"
                       style={{ textDecoration: "none", color: "inherit" }}
                     >
-                      <LinkedIn />
+                      <SocialIcon $platform="LinkedIn" />
                     </a>
                   </Member>
                 ))}
@@ -235,12 +275,12 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
             </>
           )}
           <ButtonGroup>
-            <Button href={project?.github} target="new">
-              View Code
-            </Button>
-            <Button href={project?.webapp} target="new">
-              View Live App
-            </Button>
+            {project.github && (
+              <Button href={project.github} target="_blank" rel="noopener noreferrer">View Code</Button>
+            )}
+            {project.webapp && (
+              <Button href={project.webapp} target="_blank" rel="noopener noreferrer">View Live App</Button>
+            )}
           </ButtonGroup>
         </Wrapper>
       </Container>

@@ -1,3 +1,33 @@
+import paloAltoCybersecurityCertificate from "../assets/certificates/palo-alto-cybersecurity.png";
+import ciscoPythonEssentialsCertificate from "../assets/certificates/cisco-python-essentials.jpg";
+import awsDataEngineeringCertificate from "../assets/certificates/aws-data-engineering.jpg";
+import excelrPromptEngineeringCertificate from "../assets/certificates/excelr-prompt-engineering.jpg";
+import awsCloudCertificate from "../assets/certificates/aws-cloud.jpg";
+import awsDevopsCertificate from "../assets/certificates/aws-devops.jpg";
+import googleAndroidDevelopmentCertificate from "../assets/certificates/google-android-development.png";
+import chatgptGenerativeAiCertificate from "../assets/certificates/chatgpt-generative-ai.jpg";
+import googleAiMlCertificate from "../assets/certificates/google-ai-ml.png";
+import jpMorganAgileCertificate from "../assets/certificates/jp-morgan-agile.jpg";
+import microchipEmbeddedSystemsCertificate from "../assets/certificates/microchip-embedded-systems.jpg";
+import facebookLogo from "../assets/social/facebook-logo.svg";
+import xLogo from "../assets/social/x-logo.png";
+import linkedinLogo from "../assets/social/linkedin-logo.svg";
+import instaLogo from "../assets/social/instagram-logo.svg";
+import githubLogo from "../assets/social/github-logo.svg";
+import greenkoImage from "../assets/experience/greenko.jpeg";
+import accufyImage from "../assets/experience/accufy.png";
+import scetImage from "../assets/education/scet.png";
+import smvmImage from "../assets/education/smvm.png";
+import montessoriImage from "../assets/education/montessori.jpg";
+import socialAppImage from "../assets/projects/social-app.png";
+import ppeDetectionImage from "../assets/projects/ppe-detection.png";
+import objectTrackingImage from "../assets/projects/object-tracking.png";
+import qrAttendanceImage from "../assets/projects/qr-attendance.png";
+import documentQaImage from "../assets/projects/document-qa.webp";
+import bigFishImage from "../assets/projects/freelance/big-fish.webp";
+import shakeCrazyImage from "../assets/projects/freelance/shake-crazy.webp";
+import mbncImage from "../assets/projects/freelance/mbnc.webp";
+
 export const Bio = {
   name: "Chiru Chaitanya",
   roles: [
@@ -11,284 +41,100 @@ export const Bio = {
   resume:
     "https://drive.google.com/file/d/1e59rmlbdSwbTa3H85J6WrVeZ8LSYSrCO/view",
   linkedin: "https://www.linkedin.com/in/chiru-chaitanya/",
-  //twitter: "",
+  x: "https://x.com/chiru_rkst_7?s=11",
   insta: "https://www.instagram.com/chiru_rkst_7/",
   facebook: "https://www.facebook.com/chiru.chaitanya.96/",
 };
+
+export const socialIcons = {
+  Facebook: facebookLogo,
+  X: xLogo,
+  LinkedIn: linkedinLogo,
+  Instagram: instaLogo,
+  GitHub: githubLogo,
+};
+
+export const socialLinks = [
+  { platform: "Facebook", href: Bio.facebook },
+  { platform: "X", href: Bio.x },
+  { platform: "LinkedIn", href: Bio.linkedin },
+  { platform: "Instagram", href: Bio.insta },
+  { platform: "GitHub", href: Bio.github },
+];
 
 export const skills = [
   {
     title: "Frontend",
     skills: [
-      {
-        name: "React Js",
-        image:
-          "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K",
-      },
-      // {
-      //   name: "Redux",
-      //   image:
-      //     "https://d33wubrfki0l68.cloudfront.net/0834d0215db51e91525a25acf97433051f280f2f/c30f5/img/redux.svg",
-      // },
-      {
-        name: "Next Js",
-        image:
-          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACTklEQVR4Ab1XAaQqURB9DyohSykREpRIQSAlBCoECKUFCSRCBBEAaSEABQEoCIEASCwAUICALgCo83do0//9v819XX845O7VnDkzOzP7JWGaBd3C3IJpQVjAHeJ+Rs9a97vKLGrBsB1KgMhEP3FMUUwt4ENMfxr1yQIU4SSjRkbeOZtERmHk6pXQVDlnkHh9S+QLTm1hkiz4n/gzFQuny9FoFLquE+i34x+n02k0m00UCoV3BIzn3MMJrVYLtp1OJ0cS/X4f5/MZhmG8IyDsWtDfEaDIn2232/3zbrvdxuFwwGg04qRBt+VnETBNE0IIkE2n07/erdfrWK/X6Ha73Hb9ZXII3G43ivy3dNRqtZe7lUoFs9mM6oBDwCQCgquALT1FT3a5XF7qIZ/PYzgcolqtcggIIgBZAgRKB6lCRalp2uM8k8mAVMrlchwC+DEBipycE4n5fP44j8ViKJVKSCaTbAJCpgaez4vFIsjoWa/XA50FAgEkEgmEw2F2CkxZBZ5Br5tt1ITcbjd8Ph88Hg+7CBefECCsVitS4aVJcV9D/VMCVITk/Hq9YrPZyBBo2a1YMGvAcQYcj0cCtWMugcdYNhjDiBrP25mx3++x3W6RzWZZ8isfxzQLlsslJpMJpYY5jhkqcOH1ejEYDDAej9FoNOByuZxGsfqVzC7KTqcDSkkqleKsZOqX0mAwiHK5DGrJfr+fs5SqX8sjkQji8ThCoRC+v78Za7l6JagrUh3YkUuZpqgwDaecc9VYSDoV5Fg+at7n+eLN57kuE/EvzHr/Kvs31aYAAAAASUVORK5CYII=",
-      },
-      // {
-      //   name: "Angular Js",
-      //   image:
-      //     "https://houseofangular.io/wp-content/uploads/2023/11/AngularLogoGradient.png",
-      // },
-      {
-        name: "HTML5",
-        image: "https://www.w3.org/html/logo/badge/html5-badge-h-solo.png",
-      },
-      {
-        name: "CSS3",
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/1452px-CSS3_logo_and_wordmark.svg.png",
-      },
-      {
-        name: "Tailwind CSS",
-        image:
-            "twcss.png",
-      },
-      {
-        name: "JavaScript",
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png",
-      },
-      {
-        name: "Bootstrap",
-        image:
-          "https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo-shadow.png",
-      },
-      // {
-      //   name: "Material UI",
-      //   image:
-      //     "data:image/png;base64,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",
-      // },
+      { name: "React Js", image: "skills/react.svg" },
+      { name: "Redux", image: "skills/redux.svg" },
+      { name: "Next Js", image: "skills/nextjs-icon.svg" },
+      { name: "HTML5", image: "skills/html-5.svg" },
+      { name: "CSS3", image: "skills/css-3-icon.svg" },
+      { name: "Tailwind CSS", image: "skills/tailwind-icon.svg" },
+      { name: "JavaScript", image: "skills/javascript.svg" },
+      { name: "Bootstrap", image: "skills/bootstrap.svg" },
+      { name: "Material UI", image: "skills/material-ui.svg" },
     ],
   },
   {
     title: "Backend",
     skills: [
-      {
-        name: "Node Js",
-        image: "https://nodejs.org/static/images/logo.svg",
-      },
-      // {
-      //   name: "Express Js",
-      //   image:
-      //     "data:image/png;base64,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",
-      // },
-      // {
-      //   name: "Flask",
-      //   image: "flask.png",
-      // },
-      {
-        name: "HyGraph",
-        image: "https://hygraph.com/icons/icon-512x512.png",
-      },
-      {
-        name: "Python",
-        image:
-          "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
-      },
-      {
-        name: "Django",
-        image:
-          "django.png",
-      },
-      {
-        name: "MySQL",
-        image:
-          "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg",
-      },
-      {
-        name: "Postgresql",
-        image: "https://www.postgresql.org/media/img/about/press/elephant.png",
-      },
-      {
-        name: "MongoDB",
-        image:
-          "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
-      },
-      {
-        name: "Firebase",
-        image: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
-      },
+      { name: "Node Js", image: "skills/nodejs-icon.svg" },
+      { name: "Express Js", image: "skills/express.svg" },
+      { name: "Flask", image: "skills/flask.svg" },
+      { name: "HyGraph", image: "skills/hygraph.png" },
+      { name: "Python", image: "skills/python.svg" },
+      { name: "Django", image: "skills/django-icon.svg" },
+      { name: "MySQL", image: "skills/mysql-icon.svg" },
+      { name: "Postgresql", image: "skills/postgresql.svg" },
+      { name: "MongoDB", image: "skills/mongodb-icon.svg" },
+      { name: "Firebase", image: "skills/firebase-icon.svg" },
     ],
   },
   {
     title: "DevOps",
     skills: [
-      {
-        name: "AWS",
-
-        image:
-          "https://download.logo.wine/logo/Amazon_Web_Services/Amazon_Web_Services-Logo.wine.png",
-      },
-      {
-        name: "Google Cloud",
-        image: "gcld.png",
-      },
-      // {
-      //   name: "Docker",
-      //   image:
-      //     "https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg",
-      // },
-      // {
-      //   name: "Jenkins",
-      //   image:
-      //     "https://toppng.com/uploads/preview/jenkins-logo-11609365847mufysaivph.png",
-      // },
-      // {
-      //   name: "Nginx",
-      //   image: "https://download.logo.wine/logo/Nginx/Nginx-Logo.wine.png",
-      // },
-      // {
-      //   name: "Grafana",
-      //   image:
-      //     "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Grafana_logo.svg/1200px-Grafana_logo.svg.png",
-      // },
-      // {
-      //   name: "Kubernetes",
-      //   image:
-      //     "https://upload.wikimedia.org/wikipedia/commons/0/00/Kubernetes_%28container_engine%29.png",
-      // },
-      // {
-      //   name: "Prometheus",
-      //   image:
-      //     "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Prometheus_software_logo.svg/1200px-Prometheus_software_logo.svg.png",
-      // },
+      { name: "AWS", image: "skills/aws.svg" },
+      { name: "Google Cloud", image: "skills/google-cloud.svg" },
+      { name: "Docker", image: "skills/docker-icon.svg" },
+      { name: "Jenkins", image: "skills/jenkins.svg" },
+      { name: "Nginx", image: "skills/nginx.svg" },
+      // { name: "Grafana", image: "skills/grafana.svg" },
+      // { name: "Kubernetes", image: "skills/kubernetes.svg" },
+      // { name: "Prometheus", image: "skills/prometheus.svg" },
     ],
   },
   {
     title: "Android",
     skills: [
-      {
-        name: "Java",
-        image:
-          "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
-      },
-      // {
-      //   name: "Kotlin",
-      //   image:
-      //     "https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg",
-      // },
-      // {
-      //   name: "Jetpack Compose",
-      //   image:
-      //     "https://3.bp.blogspot.com/-VVp3WvJvl84/X0Vu6EjYqDI/AAAAAAAAPjU/ZOMKiUlgfg8ok8DY8Hc-ocOvGdB0z86AgCLcBGAsYHQ/s1600/jetpack%2Bcompose%2Bicon_RGB.png",
-      // },
-      // {
-      //   name: "XML",
-      //   image:
-      //     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBMw6_RdwKQ9bDFfnKDX1iwMl4bVJEvd9PP53XuIw&s",
-      // },
-      {
-        name: "FlutterFlow",
-        image:
-            "https://cdn-images-1.medium.com/max/1200/1*5-aoK8IBmXve5whBQM90GA.png",
-      },
-      {
-        name: "Android Studio",
-        image:
-          "https://developer.android.com/static/studio/images/new-studio-logo-1_1920.png",
-      },
+      { name: "Java", image: "skills/java.svg" },
+      { name: "FlutterFlow", image: "skills/flutterflow.png" },
+      { name: "Android Studio", image: "skills/androidstudio.svg" },
     ],
   },
   {
     title: "Machine Learning",
     skills: [
-      {
-        name: "Python",
-        image:
-          "https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg",
-      },
-      {
-        name: "TensorFlow",
-        image:
-          "tf.png",
-      },
-      {
-        name: "Keras",
-        image:
-          // "https://miro.medium.com/v2/resize:fit:600/1*DKu_54iqz6C-p6ndo7rO3g.png",
-        'https://img.logo.dev/keras.io?token=live_6a1a28fd-6420-4492-aeb0-b297461d9de2&size=64&retina=true&format=png&theme=dark',
-      },
-      {
-        name: "Jupyter",
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/1767px-Jupyter_logo.svg.png",
-      },
-      {
-        name: "PyTorch",
-        image:
-          "https://img.logo.dev/pytorch.org?token=live_6a1a28fd-6420-4492-aeb0-b297461d9de2&size=64&retina=true&format=png&theme=dark",
-      },
-      {
-        name: "Google Colab",
-        image:
-            "https://w7.pngwing.com/pngs/968/991/png-transparent-google-colab-logo-tech-companies.png",
-      },
-      {
-        name: "Scikit Learn",
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scikit_learn_logo_small.svg/2560px-Scikit_learn_logo_small.svg.png",
-      },
+      { name: "Python", image: "skills/python.svg" },
+      { name: "TensorFlow", image: "skills/tensorflow.svg" },
+      { name: "Keras", image: "skills/keras.svg" },
+      { name: "Jupyter", image: "skills/jupyter.svg" },
+      { name: "PyTorch", image: "skills/pytorch-icon.svg" },
+      { name: "Google Colab", image: "skills/google-colab-icon.svg" },
+      { name: "Scikit Learn", image: "skills/scikitlearn.svg" },
     ],
   },
   {
     title: "Others",
     skills: [
-      {
-        name: "Git",
-        image:
-          "https://e7.pngegg.com/pngimages/713/558/png-clipart-computer-icons-pro-git-github-logo-text-logo-thumbnail.png",
-      },
-      {
-        name: "GitHub",
-        image:
-          "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-      },
-      {
-        name: "Netlify",
-        image:
-          "https://img.logo.dev/netlify.com?token=live_6a1a28fd-6420-4492-aeb0-b297461d9de2&size=64&retina=true&format=png&theme=dark",
-      },
-      {
-        name: "Vercel",
-        image:
-            "https://smlvqzf0a1b66cku.public.blob.vercel-storage.com/images/Vercel%20Logo-IMoeV2W33gFclXzAfZxmAHqtjBuTzP.png",
-      },
-      {
-        name: "VS Code",
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png?20210804221519",
-      },
-      {
-        name: "Postman",
-        image:
-          "pm.png",
-      },
-      {
-        name: "PowerBI",
-        image:
-            "PowerBI.png",
-      },
-      // {
-      //   name: "Adobe XD",
-      //   image:
-      //     "https://camo.githubusercontent.com/c205ecbe12500177d102169d97bc1c17c545155fdf5ec78c08d54ac53e5b38c1/68747470733a2f2f63646e2e776f726c64766563746f726c6f676f2e636f6d2f6c6f676f732f61646f62652d78642e737667",
-      // },
-      // {
-      //   name: "Figma",
-      //   image:
-      //     "https://s3-alpha.figma.com/hub/file/1481185752/fa4cd070-6a79-4e1b-b079-8b9b76408595-cover.png",
-      // },
+      { name: "Git", image: "skills/git-icon.svg" },
+      { name: "GitHub", image: "skills/github-icon.svg" },
+      { name: "Netlify", image: "skills/netlify-icon.svg" },
+      { name: "Vercel", image: "skills/vercel-icon.svg" },
+      { name: "VS Code", image: "skills/visual-studio-code.svg" },
+      { name: "Postman", image: "skills/postman-icon.svg" },
+      { name: "PowerBI", image: "skills/powerbi.png" },
     ],
   },
 ];
@@ -296,7 +142,7 @@ export const skills = [
 export const experiences = [
     {
       id: 0,
-      img: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/experience%2Fgreenko.jpeg?alt=media&token=a2e8b492-0ec5-4b5e-860f-b43b8ae3051c",
+      img: greenkoImage,
       role: "SAP MM Operations and Management Consultant",
       company: "Greenko Group",
       date: "Sep 2021 – Apr 2022",
@@ -306,7 +152,7 @@ export const experiences = [
     },
     {
       id: 1,
-      img: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/experience%2Faccufy.png?alt=media&token=c84169ad-88de-4af4-901d-66d3c30b69d0",
+      img: accufyImage,
       role: "Python Full Stack Web Developer",
       company: "Accufy, Hyderabad, India",
       date: "Apr 2025 – Present",
@@ -319,7 +165,7 @@ export const experiences = [
 export const education = [
   {
     id: 0,
-    img: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/SCET.png?alt=media&token=54de5fd4-a133-46ff-9984-b35ee70c8225",
+    img: scetImage,
     school: "Swarnandhra College of Engineering and Technology, Narsapur",
     date: "Oct 2022 - Sep 2025",
     grade: "8.09 CGPA",
@@ -328,7 +174,7 @@ export const education = [
   },
   {
     id: 1,
-    img: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/SMVM.png?alt=media&token=f3417396-7345-4d32-ac99-b17a39ffd3df",
+    img: smvmImage,
     school: "Sree Mullapudi Venkataraya Memorial Polytechnic, Tanuku",
     date: "Apr 2017 - Apr 2020",
     grade: "71.94%",
@@ -337,7 +183,7 @@ export const education = [
   },
   {
     id: 2,
-    img: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/Montessori.jpg?alt=media&token=aaaa5395-eda4-4fce-8c81-0c8919f1ae81",
+    img: montessoriImage,
     school: "Montessori School, Tanuku",
     date: "Apr 2016 - Apr 2017",
     grade: "9.7 GPA",
@@ -350,9 +196,15 @@ export const projects = [
   {
     "id": 1,
     title: "MERN Stack Social App",
+    implementation: "The app handles the feed and live conversations differently. Posts remain available when someone returns to the feed, while Socket.io delivers new chat messages during a conversation. Firebase handles uploaded images separately from the posts that reference them.",
+    highlights: [
+      "A member can create a profile, find friends, and start a conversation from the same account they use to post.",
+      "The feed brings together text, photos, and videos. A member can move between browsing other people’s posts and publishing their own.",
+      "The React interface includes light and dark themes, with a Netlify frontend that connects to the Express backend on Vercel.",
+    ],
     date: "Mar 2025",
     description: "Developed a feature-rich social networking web application using the MERN stack, enabling users to connect and engage seamlessly. Users can register and log in securely, explore posts from all users, and manage their own profile details. The platform supports real-time chatting using Socket.io, friend management, and interactive post creation with text, images, or videos. The UI is built using Material UI, offering a responsive and visually appealing experience, with a theme toggle for light and dark modes. Firebase is integrated for image storage, ensuring fast and scalable media handling. Deployed the backend on Vercel and the frontend on Netlify, optimizing performance and user experience.",
-    image: "Social.png",
+    image: socialAppImage,
     tags: ["MongoDB", "Express.js", "React", "Node.js", "Socket.io", "Redux", "Firebase", "MUI"],
     category: "web app",
     github: "https://github.com/chiruchaitanya77/SocialApp",
@@ -361,9 +213,15 @@ export const projects = [
   {
     id: 2,
     title: "PPE Compliance Detection System",
+    implementation: "I connected a YOLOv8 detector to a Django dashboard so a reviewer can use the same detection workflow on a recorded incident or a live camera feed. The model distinguishes specific missing equipment, which lets the application alert the reviewer to the type of violation.",
+    highlights: [
+      "An operator can upload a video for review or select a connected camera for live monitoring.",
+      "The detector checks frames for missing helmets, safety vests, and masks. A sound alert flags these detections while the footage is being processed.",
+      "The dashboard includes training graphs and CSV results for reviewing how the detector performed during training.",
+    ],
     date: "Mar 2025",
     description: "Developed a DeepLearning based PPE Compliance Detection System uses YOLOv8 to detect helmets, vests, gloves, and shoes in real-time from CCTV footage, ensuring workplace safety. Built using Python Django and HTML/CSS, JS, it alerts managers of violations and simplifies compliance monitoring.",
-    image: "Poster.png",
+    image: ppeDetectionImage,
     tags: ["Python", "Django","YOLOv8", "OpenCV", "Deep Learning", "SQLite3" , "Torchvision", "Jinja2", "Drive API", "Pygame", "Pillow"],
     category: ["machine learning"],
     github: "https://github.com/chiruchaitanya77/PPE_Detection_System",
@@ -372,11 +230,17 @@ export const projects = [
   {
     id: 3,
     title: "Object Detection and Tracking",
+    implementation: "A Flask application connects the browser to a YOLOv9 detector. Images take a single trip through the model. Video takes a different path because each frame needs its own detections before the result can be played back.",
+    highlights: [
+      "An uploaded image produces an annotated result so the viewer can inspect which objects the model found.",
+      "For MP4 uploads, OpenCV reads the frames, draws the model’s boxes and labels, and writes the annotated frames back to video.",
+      "The camera view streams annotated JPEG frames to the browser, letting a viewer see detections as the scene changes.",
+    ],
     date: "Sep 2024 - Nov 2024",
     description:
         "Developed a web interactive object detection application capable of detecting objects in images and tracking in videos/ webcam, using pre-trained Ultralytics-Yolov9 model, PyTorch, OpenCV, TensorFlow, and flask, and used Django for the project's front end. Achievements: Achieved an accuracy of 95.8% in accurately detecting objects from images/ videos.",
     image:
-        "obj_thumbnail.png",
+        objectTrackingImage,
     tags: ["Python", "Keras", "TensorFlow", "VGG16", "Pickle", "React"],
     // category: "web app",
     category: ["machine learning"],
@@ -386,6 +250,12 @@ export const projects = [
   {
     id: 4,
     title: "Face Recognition",
+    implementation: "I used reference photos organized into folders, one per person. The application converts those photos into numerical face encodings, pairs each encoding with its folder label, and stores the result in a pickle file for the next session.",
+    highlights: [
+      "On startup, the app loads saved encodings when available, avoiding a fresh scan of the reference photos each time.",
+      "OpenCV reduces the webcam frames to a quarter of their original width and height before the recognition step.",
+      "When a face matches a known encoding, the app scales its coordinates back to the full frame and draws a box with the matching name.",
+    ],
     date: "Jan 2021",
     description:
         "A Face recognition python app made with OpenCV. It uses face_recognition library to detect faces. It uses the webcam to detect faces. It also has a search bar to search for a particular face.",
@@ -399,9 +269,15 @@ export const projects = [
   {
     id: 5,
     title: "QR Code-Based Attendance System",
+    implementation: "Each attendance entry connects a student’s roll number to a date. That gives the scanner a way to recognize repeat scans and gives administrators a consistent way to reconstruct the class register for a particular day.",
+    highlights: [
+      "Students register and receive an ID card with an individual QR code that the attendance camera can read.",
+      "Before marking a student present, the Django backend checks for an existing entry for that roll number and date.",
+      "Administrators can review present and absent lists by date. A Google Sheets integration makes the attendance record available outside the dashboard.",
+    ],
     date: "Feb 2025",
     description: "Developed a Django-based attendance system that automates student attendance tracking using QR codes. The system generates unique QR codes for students, which can be scanned via a mobile/web application for real-time attendance marking. It integrates Django for the backend, OpenCV for QR scanning, and a user-friendly web interface for students and administrators.",
-    image: "QR-School.png",
+    image: qrAttendanceImage,
     tags: ["Python", "Django", "OpenCV", "QR Code", "OAuth" , "Sheets API", "Drive API"],
     category: "web app",
     github: "https://github.com/chiruchaitanya77/QR_Attendance_System",
@@ -410,279 +286,132 @@ export const projects = [
   {
     id: 6,
     title: "AI-Powered Document Question-Answering System",
+    implementation: "The system separates preparing a document from answering questions about it. Ingestion builds a reusable index, so a follow-up question can search passages already processed instead of parsing the whole document again.",
+    highlights: [
+      "The ingestion pipeline reads PDFs, text files, and structured documents, then splits their content into smaller passages while retaining metadata.",
+      "Embeddings make it possible to retrieve passages by meaning, even when the question uses different wording from the document.",
+      "A prompt builder combines the question with the retrieved text for Gemini. Separate API endpoints support adding documents, querying the collection, and administration.",
+    ],
     date: "Apr 2025",
     description: "Built a production-ready AI-driven Document Question-Answering (QA) system capable of ingesting PDFs, text files, and structured documents, converting them into vector embeddings, and answering user queries with high accuracy. Implemented a modular Python architecture with pipelines for document ingestion, intelligent text splitting, metadata extraction, embedding generation, and vector storage. Integrated a custom LLM pipeline using Google Gemini with a prompt-builder engine to deliver context-aware, document-grounded answers. Exposed REST APIs for document ingestion, querying, and admin operations. Utilized SQLAlchemy for database models and sessions, along with robust logging, configuration management, and utilities for reliable deployment. The system enables organizations to transform their documents into a fully interactive and searchable knowledge base.",
-    image: "ai-qa-system.png",
+    image: documentQaImage,
     tags: ["Python", "LLM", "Gemini API", "OpenAI", "Embeddings", "Vector Store", "NLP", "RAG", "FastAPI", "SQLAlchemy", "Document Processing"],
     category: ["machine learning"],
     github: "",
     webapp: "https://comingsoonpg.netlify.app/"
   }
+];
 
-  // {
-  //   id: 11,
-  //   title: "DecisionHub",
-  //   date: "Jan 2024 - Dec 2023",
-  //   description:
-  //     "A Rule Builder application “Decision Hub” that empowers Business Analysts to create, save, and visualize decision strategies. Provide a no-code rule writing experience and visual representation to test these rules in real-time and observe the calculations at each step.",
-  //   image:
-  //     "https://github.com/rishavchanda/DecisionHub/raw/master/assets/testRule.jpg",
-  //   tags: [
-  //     "React Js",
-  //     "PostgressSQL",
-  //     "Node Js",
-  //     "Express Js",
-  //     "Redux",
-  //     "React Flow",
-  //   ],
-  //   category: "web app",
-  //   github: "https://github.com/rishavchanda/DecisionHub",
-  //   webapp: "https://comingsoonpg.netlify.app/",
-  // },
-  // {
-  //   id: 9,
-  //   title: "Trackify",
-  //   date: "Jun 2023 - Jul 2023",
-  //   description:
-  //     "Trackify is a web application designed to streamline task management and enhance productivity in the workplace. It provides a user-friendly interface for employers to keep track of their employees' daily work activities and empowers employees to log their tasks efficiently. \nAdmin Credentials: # Email: testadmin@gmail.com #Password- 123@testadmin, Employee Credentials:	#Email: testemployee@gmail.com	#Password- 123@Testemployee",
-  //   image:
-  //     "https://user-images.githubusercontent.com/64485885/255202416-e1f89b04-2788-45b0-abc2-9dec616669e2.png",
-  //   tags: [
-  //     "Docker",
-  //     "AWS",
-  //     "DuckDNS",
-  //     "Eslint",
-  //     "Husky",
-  //     "CI/CD",
-  //     "React Js",
-  //     "MongoDb",
-  //     "Node Js",
-  //     "Express Js",
-  //     "Redux",
-  //   ],
-  //   category: "web app",
-  //   github: "https://github.com/rishavchanda/Trackify",
-  //   webapp: "https://comingsoonpg.netlify.app/",
-  // },
-  // {
-  //   id: 0,
-  //   title: "Podstream",
-  //   date: "Apr 2023 - May 2023",
-  //   description:
-  //     "Developed a full-stack web application that allows users to search for, play, and pause their favorite podcasts on demand and create podcasts. Implemented user authentication using Google Auth and Jwt Auth, made responsive user interface with React JS that provides users with a seamless experience across all devices. Practiced agile methodologies to optimize team efficiency and communication.",
-  //   image:
-  //     "https://user-images.githubusercontent.com/64485885/234602896-a1bd8bcc-b72b-4821-83d6-8ad885bf435e.png",
-  //   tags: ["React Js", "MongoDb", "Node Js", "Express Js", "Redux"],
-  //   category: "web app",
-  //   github: "https://github.com/rishavchanda/Podstream",
-  //   webapp: "https://comingsoonpg.netlify.app/",
-    // member: [
-    //   {
-    //     name: "Rishav Chanda",
-    //     img: "https://avatars.githubusercontent.com/u/64485885?v=4",
-    //     linkedin: "https://www.linkedin.com/in/rishav-chanda-b89a791b3/",
-    //     github: "https://github.com/rishavchanda/",
-    //   },
-    //   {
-    //     name: "Upasana Chaudhuri",
-    //     img: "https://avatars.githubusercontent.com/u/100614635?v=4",
-    //     linkedin: "https://www.linkedin.com/in/upasana-chaudhuri-2a2bb5231/",
-    //     github: "https://github.com/upasana0710",
-    //   },
-    // ],
-  // },
-  // {
-  //   id: 1,
-  //   title: "Vexa",
-  //   date: "Oct 2022 - Jan 2023",
-  //   description:
-  //     "Designed and developed the Vexa project, a project management app that helps users and teams stay organized and on track. Implemented key features such as task tracking, team collaboration, and time tracking to improve productivity and project outcomes and also invite team/project members. The plan is to add a community of users where they can find developers and other team members and chat system implementation.",
-  //   image:
-  //     "https://user-images.githubusercontent.com/64485885/234916413-96296f13-fe4b-4cc4-b215-e72bd7c27928.png",
-  //   tags: [
-  //     "React Js",
-  //     "MongoDb",
-  //     "Node Js",
-  //     "Express Js",
-  //     "Redux",
-  //     "NodeMailer",
-  //   ],
-  //   category: "web app",
-  //   github: "https://github.com/rishavchanda/Project-Management-App",
-  //   webapp: "https://comingsoonpg.netlify.app/",
-  // },
-  // {
-  //   id: 2,
-  //   title: "Brain Tumor Detection",
-  //   date: "Jan 2023 - Mar 2023",
-  //   description:
-  //     "Preprocessed and augmented the dataset to improve model accuracy, trained the model, created API using model and Python, and used React web app for the project's front end. Achievements: Achieved an accuracy of 99.2% to accurately detect brain tumors from medical images.",
-  //   image:
-  //     "https://github.com/rishavchanda/Brain-Tumor-Detection/raw/main/Readme_resource/Image2.png",
-  //   tags: ["Python", "Keras", "TensorFlow", "VGG16", "Pickle", "React"],
-  //   category: "machine learning",
-  //   github: "https://github.com/rishavchanda/Brain-Tumor-Detection",
-  //   webapp: "https://comingsoonpg.netlify.app/",
-    // member: [
-    //   {
-    //     name: "Rishav Chanda",
-    //     img: "https://avatars.githubusercontent.com/u/64485885?v=4",
-    //     linkedin: "https://www.linkedin.com/in/rishav-chanda-b89a791b3/",
-    //     github: "https://github.com/rishavchanda/",
-    //   },
-    //   {
-    //     name: "Upasana Chaudhuri",
-    //     img: "https://avatars.githubusercontent.com/u/100614635?v=4",
-    //     linkedin: "https://www.linkedin.com/in/upasana-chaudhuri-2a2bb5231/",
-    //     github: "https://github.com/upasana0710",
-    //   },
-    // ],
-  // },
-  // {
-  //   id: 3,
-  //   title: "Buckoid",
-  //   date: "Dec 2021 - Apr 2022",
-  //   description:
-  //     "App Is Currently In Playstore 100+ Downloads. This Project proposes an “Expense Tracking App”. Keep track of your personal expenses and compare them to your monthly income with the budget planner. It has Google Drive Cloud API for Backup of User Room Database. Made with Kotlin in MVVM Architecture & Live Data.",
-  //   image:
-  //     "https://camo.githubusercontent.com/3ad28aa710d18525f1fc87de056ed53c706d09979589bfd5a773df36653bad38/68747470733a2f2f666972656261736573746f726167652e676f6f676c65617069732e636f6d2f76302f622f6c6f67696e2d65613565322e61707073706f742e636f6d2f6f2f4255434b4f49442532302831292e706e673f616c743d6d6564696126746f6b656e3d32653735376235372d323964372d346263612d613562322d653164346538313432373435",
-  //   tags: ["Kotlin", "MVVM", "Room Database", "Google Drive Cloud API"],
-  //   category: "android app",
-  //   github: "https://github.com/rishavchanda/Buckoid-Android-App",
-  //   webapp: "https://comingsoonpg.netlify.app/",
-  // },
-  // {
-  //   id: 10,
-  //   title: "Job Finding App",
-  //   date: "Jun 2023 - Jul 2023",
-  //   description:
-  //     "A Job Finding App made with React Native, Axios. Users can search for any job coming from API and apply there.",
-  //   image:
-  //     "https://user-images.githubusercontent.com/64485885/255237090-cf798a2c-1b41-4bb7-b904-b5353a1f08e8.png",
-  //   tags: ["React Native", "JavaScript", "Axios"],
-  //   category: "android app",
-  //   github: "https://github.com/rishavchanda/Job-finder-App",
-  //   webapp: "https://comingsoonpg.netlify.app/",
-  // },
-  // {
-  //   id: 4,
-  //   title: "Whatsapp Clone",
-  //   date: "Jul 2021",
-  //   description:
-  //     "A WhatsApp clone made with React JS, Firebase, and Material UI. It has Phone Authentication, Real-time Database. It has a chat room where users can chat with each other. It has a sidebar where users can see all the chat rooms and can create a new chat room. It has a login page where users can log in with their Google account.",
-  //   image:
-  //     "https://firebasestorage.googleapis.com/v0/b/whatsapp-clone-rishav.appspot.com/o/Screenshot%20(151).png?alt=media&token=48391593-1ef0-4a8c-a92a-eb82bdf38e89",
-  //   tags: ["React Js", "Firebase", "Firestore", "Node JS"],
-  //   category: "web app",
-  //   github: "https://github.com/rishavchanda/Whatsapp-Clone-React-Js",
-  //   webapp: "https://comingsoonpg.netlify.app/",
-  // },
-  // {
-  //   id: 5,
-  //   title: "Todo Web App",
-  //   date: "Jun 2021",
-  //   description:
-  //     " A Todo Web App made with React JS, Redux, and Material UI. It has a login page where users can log in with their Google account. It has a sidebar where users can see all the tasks and can create a new task. It has a calendar where users can see all the tasks on a particular date. It has a search bar where users can search for a particular task.",
-  //   image:
-  //     "https://camo.githubusercontent.com/84ac6ab6f378348ef28d8184062b7e9e3511a1252ae3966eaa49e8e998f732a7/68747470733a2f2f666972656261736573746f726167652e676f6f676c65617069732e636f6d2f76302f622f746f646f2d6170702d63386331392e61707073706f742e636f6d2f6f2f53637265656e73686f74253230283938292e706e673f616c743d6d6564696126746f6b656e3d33643335646366322d626666322d343730382d393031632d343232383866383332386633",
-  //   tags: ["React Js", "Local Storage", "AWS Auth", "Node JS"],
-  //   category: "web app",
-  //   github: "https://github.com/rishavchanda/Todo-Web-App",
-  //   webapp: "https://comingsoonpg.netlify.app/",
-  // },
-  // {
-  //   id: 6,
-  //   title: "Breaking Bad",
-  //   date: "Jun 2021",
-  //   description:
-  //     "A simple react app that shows the characters of the famous TV series Breaking Bad. It uses the Breaking Bad API to fetch the data. It also has a search bar to search for a particular character.",
-  //   image:
-  //     "https://camo.githubusercontent.com/937774368308a82419f53dd6eeb4a8675780e119636488b4e3cfe5d34859a72a/68747470733a2f2f666972656261736573746f726167652e676f6f676c65617069732e636f6d2f76302f622f746f646f2d6170702d63386331392e61707073706f742e636f6d2f6f2f53637265656e73686f7425323028313534292e706e673f616c743d6d6564696126746f6b656e3d65613439383630632d303435362d343333342d616435372d336239346663303333363263",
-  //   tags: ["React Js", "API", "Axios", "Node JS"],
-  //   category: "web app",
-  //   github: "https://github.com/rishavchanda/Breaking-Bad",
-  //   webapp: "https://comingsoonpg.netlify.app/",
-  // },
-  // {
-  //   id: 7,
-  //   title: "Quiz App",
-  //   date: "Dec 2020 - Jan 2021",
-  //   description:
-  //     "A android quiz app made with Java and Firebase. It has a login page where users can log in with their Google account. It has a sidebar where users can see all the quiz categories and can create a new quiz. It has a leaderboard where users can see the top 10 scorers. It has a search bar where users can search for a particular quiz.",
-  //   image:
-  //     "https://github-production-user-asset-6210df.s3.amazonaws.com/64485885/239726262-c1b061d1-d9d0-42ef-9f1c-0412d14bc4f6.gif",
-  //   tags: ["Java", "Android Studio", "Firebase", "Google Auth"],
-  //   category: "android app",
-  //   github: "https://github.com/rishavchanda/Quiz-Earn",
-  //   webapp: "https://comingsoonpg.netlify.app/",
-  // },
+export const freelanceProjects = [
+  {
+    title: "The Big Fish Collectives",
+    implementation: "Applications and casting briefs share a form-validation layer and go into Cloudflare D1. The site saves each enquiry before sending email, so the team still has a record if a notification fails. The dashboard keeps the submitted brief and its status history together for follow-up.",
+    sector: "Casting & talent representation",
+    description: "I built a website for a Hyderabad talent collective where actors and crew can apply for representation and producers can submit a casting brief.",
+    tags: ["React", "TypeScript", "Cloudflare Workers", "D1"],
+    highlights: [
+      "Actors and crew can send a portfolio or showreel with their application for representation.",
+      "A separate brief lets producers describe the role, shoot dates, location, and budget so the collective can shortlist people who fit.",
+      "The team can review incoming enquiries in one dashboard and track each from receipt to closure.",
+    ],
+    image: bigFishImage,
+    webapp: "https://big-fish-collective.bigfishcollective.workers.dev/",
+  },
+  {
+    title: "Shake Crazy",
+    implementation: "The truck changes location, so the homepage connects its directions button and map to the team’s latest check-in. When coordinates are available the map uses the pin directly, and a written location can also be used for directions. The page shows the truck’s typical hours alongside the map.",
+    sector: "Food truck",
+    description: "I built a site where customers can find the truck, filter the menu by category or dietary preference, and try their timing in a stopwatch challenge.",
+    tags: ["React", "TypeScript", "Express", "GSAP"],
+    highlights: [
+      "Customers can narrow the menu by food category and vegetarian or non-vegetarian options. Unavailable items stay out of the results.",
+      "The truck’s team can update the location and menu from an admin dashboard, so customers can check both before heading out.",
+      "A daily game challenges visitors to stop a timer at ten seconds. A winners list records successful attempts.",
+    ],
+    image: shakeCrazyImage,
+    webapp: "https://meek-twilight-96f4de.netlify.app/",
+  },
+  {
+    title: "MBNC Private Limited",
+    implementation: "I connected the public quote form to a searchable list for the office. Each submission captures contact details and a written project description alongside the site and budget, giving the team the information it needs for a first conversation. The form validates required fields before sending the request.",
+    sector: "Construction & infrastructure",
+    description: "I built a project showcase and quote request form so prospective clients can explore the company’s residential, commercial, and industrial work before sharing their own plans.",
+    tags: ["Next.js", "TypeScript", "GSAP"],
+    highlights: [
+      "Visitors can filter the project gallery by residential, commercial, or industrial work and see where each build took place.",
+      "The quote form asks for the type of construction and site location, with room to share a budget and preferred timeline.",
+      "The office can search incoming quote requests and filter by project type or status when following up with prospective clients.",
+    ],
+    image: mbncImage,
+    webapp: "https://mbnc-396jpyx9s-chirus-projects-3a155289.vercel.app/",
+  },
 ];
 
 export const certificates = [
   {
     id: 9,//big
     title: "CYBER-SECURITY",
-    image: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/certificates%2FPaloalto's%20Cyber%20Security.png?alt=media&token=9296f0d0-7bac-461d-b871-ae88ec25ed10",
+    image: paloAltoCybersecurityCertificate,
     duration: 1.5
   },
   {
     id: 1,//small
     title: "PYTHON ESSENTIALS",
-    image: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/certificates%2FCisco-Python.jpg?alt=media&token=52bbc910-ac71-4cec-af72-40525f9f198e",
+    image: ciscoPythonEssentialsCertificate,
     duration: 1.5
   },
   {
     id: 8,//big
     title: "AWS DATA ENGINEERING",
-    image: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/certificates%2FAWS%20Data%20Engineering.jpg?alt=media&token=f7745c52-8ca0-4a70-a1ee-9adf9a4f9be2",
+    image: awsDataEngineeringCertificate,
     duration: 1.5
   },
   {
     id: 2,//small
     title: "PROMPT ENGINEERING",
-    image: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/certificates%2FEXCELR-75169-Chiru%20Chaitanya.jpg?alt=media&token=cd5e77cd-4ae6-47e2-91bb-42fe87bb5676",
+    image: excelrPromptEngineeringCertificate,
     duration: 1
   },
   {
     id: 7,//big
     title: "AWS CLOUD",
-    image: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/certificates%2FAWS%20Cloud%20Certificate.jpg?alt=media&token=bc357161-1622-4095-9f8f-a49d4fff7472",
+    image: awsCloudCertificate,
     duration: 1
   },
   {
     id: 3,//small
     title: "AWS DEVOPS",
-    image: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/certificates%2FAWS%20DevOps%20Cloud%20Bootcamp.jpg?alt=media&token=42fe19c9-b687-43bd-ac39-6c3e9c1be5f0",
+    image: awsDevopsCertificate,
     duration: 1.5
   },
   {
     id: 6,//big
     title: "GOOGLE'S ANDROID DEV",
-    image: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/certificates%2FGoogle's%20Android%20Developer.png?alt=media&token=fe0f8f7c-6e04-482a-8551-3a2f06eec806",
+    image: googleAndroidDevelopmentCertificate,
     duration: 1.5
   },
   {
     id: 4,//small
     title: "CHATGPT/GEN AI",
-    image: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/certificates%2FChatGPT_%20Gen%20AI.jpg?alt=media&token=9c0abe90-4533-41e7-ba52-ed3b00944952",
+    image: chatgptGenerativeAiCertificate,
     duration: 1
   },
   {
     id: 5,//big
     title: "GOOGLE'S AIML",
-    image: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/certificates%2FGoogle's%20AIML.png?alt=media&token=75de0cee-a01a-4938-83d4-c9f47d167b77\n",
+    image: googleAiMlCertificate,
     duration: 1
   },
   {
     id: 11,//small
     title: "JP-MORGAN'S AGILE",
-    image: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/certificates%2FJP%20MOrgan's%20Agile.jpg?alt=media&token=87cbe166-bb47-40df-a75d-0891669f45db",
+    image: jpMorganAgileCertificate,
     duration: 1.5
   },
   {
     id: 10,//big
     title: "EMBEDDED SYSTEM DEV",
-    image: "https://firebasestorage.googleapis.com/v0/b/image-recognizion-f9e47.appspot.com/o/certificates%2FMicrochip's%20Embedded%20Systems.jpg?alt=media&token=009691c4-0c27-4eed-9981-9117f79427af",
+    image: microchipEmbeddedSystemsCertificate,
     duration: 1
   },
 ];

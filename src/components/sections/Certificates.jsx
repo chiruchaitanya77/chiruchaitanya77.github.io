@@ -22,7 +22,7 @@ const Wrapper = styled.div`
     overflow: hidden;
 `;
 
-const Title = styled.div`
+const Title = styled.h2`
     font-size: 52px;
     text-align: center;
     font-weight: 600;

@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
+import { trackEvent } from "../../utils/analytics";
 import { Bio } from "../../data/constants";
 import Typewriter from "typewriter-effect";
-import HeroImg from "../../images/HeroImg.jpeg";
 import HeroBgAnimation from "../HeroBgAnimation";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
@@ -74,7 +74,7 @@ const HeroRightContainer = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
   font-weight: 700;
   font-size: 50px;
   color: ${({ theme }) => theme.text_primary};
@@ -140,7 +140,7 @@ const ResumeButton = styled.a`
   width: 95%;
   max-width: 300px;
   text-align: center;
-  padding: 16px 0;
+  padding: 16px 32px;
 
   background: hsla(271, 100%, 50%, 1);
   background: linear-gradient(
@@ -172,7 +172,7 @@ const ResumeButton = styled.a`
     
     
     @media (max-width: 640px) {
-        padding: 12px 0;
+        padding: 12px 24px;
         font-size: 18px;
     } 
     color: white;
@@ -249,14 +249,14 @@ const Hero = () => {
                 <SubTitle>{Bio.description}</SubTitle>
               </motion.div>
 
-              <ResumeButton href={Bio.resume} target="_blank">
+              <ResumeButton href={Bio.resume} target="_blank" onClick={() => trackEvent("resume_open")}>
                 Check Resume
               </ResumeButton>
             </HeroLeftContainer>
             <HeroRightContainer>
               <motion.div {...headContentAnimation}>
                 <Tilt>
-                  <Img src={HeroImg} alt="Chiru Chaitanya" />
+                  <Img src={`${process.env.PUBLIC_URL}/branding/portrait.jpeg`} alt="Chiru Chaitanya" />
                 </Tilt>
               </motion.div>
             </HeroRightContainer>

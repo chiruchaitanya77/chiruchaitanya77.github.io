@@ -1,5 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import toast from "react-hot-toast";
+import { trackEvent } from "../../utils/analytics";
 import emailjs from "@emailjs/browser";
 
 const Container = styled.div`
@@ -25,7 +27,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled.h2`
   font-size: 52px;
   text-align: center;
   font-weight: 600;
@@ -100,77 +102,60 @@ const ContactButton = styled.button`
   width: 100%;
   text-decoration: none;
   text-align: center;
-  background: ${({ sent }) => (sent ? "green" : "hsla(271, 100%, 50%, 1)")};
+  background: ${({ theme }) => theme.primary};
   padding: 13px 16px;
   margin-top: 2px;
   border-radius: 12px;
   border: none;
-  color: ${({ theme }) => theme.text_primary};
+  color: #fff;
   font-size: 18px;
   font-weight: 600;
-  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
-  // opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
-  
-  /* Hover effect */
+  cursor: pointer;
   transition: background-color 0.3s ease, transform 0.1s ease;
 
-  &:hover {
-    background-color: ${({ sent, disabled }) =>
-    disabled ? "" : sent ? "darkgreen" : "hsla(271, 100%, 60%, 1)"};
+  &:hover:enabled {
     transform: scale(1.05);
   }
 
-  /* Click effect */
-  &:active {
+  &:active:enabled {
     transform: scale(0.95);
   }
 
-  /* Text and icon styling */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  &::before {
-    content: ${({ sent }) => (sent ? '"✔"' : '""')};  /* Show checkmark if sent */
-    margin-right: 8px;
-    font-size: 20px;
+  &:disabled {
+    cursor: wait;
+    opacity: 0.8;
   }
 `;
 
 const Contact = () => {
-  const form = useRef();
-  const [sent, setSent] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(false);  // State to disable the button
+  const [isSending, setIsSending] = useState(false);
 
-  const handelSubmit = async (e) => {
-    e.preventDefault();
-    setSent(true);  // Set the button state to 'sent'
-    setIsDisabled(true);  // Disable the button during submission
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (isSending) return;
 
-    console.log("Form submitted");
-
-    emailjs
-        .sendForm(
-            "service_gymc422", // EmailJS service ID
-            "template_adrw5rr", // EmailJS template ID
-            form.current, // Form reference
-            "XzaK1mx3iYusQomMO" // EmailJS user ID
-        )
-        .then(
-            (result) => {
-              setTimeout(() => {
-                setSent(false); // Revert to 'send' button after 2 seconds
-                setIsDisabled(false);  // Enable the button after submission
-                alert("Message Sent");
-                form.current.reset(); // Reset the form after successful submission
-              }, 2000); // Wait for 2 seconds before reverting
-            },
-            (error) => {
-              alert("Error: " + error.text);  // Display the error message
-              setSent(false);  // Revert to 'send' state in case of an error
-              setIsDisabled(false);  // Enable the button if there's an error
-            }
-        );
+    const form = event.currentTarget;
+    setIsSending(true);
+    toast.promise(
+      async () => {
+        try {
+          await emailjs.sendForm("service_gymc422", "template_adrw5rr", form, "XzaK1mx3iYusQomMO");
+          form.reset();
+          trackEvent("generate_lead");
+        } finally {
+          setIsSending(false);
+        }
+      },
+      {
+        loading: "Sending your message…",
+        success: "Your message was sent.",
+        error: "Your message couldn’t be sent. Please try again.",
+      },
+      {
+        id: "contact-message",
+        error: { ariaProps: { role: "alert", "aria-live": "assertive" } },
+      }
+    );
   };
 
   return (
@@ -184,34 +169,38 @@ const Contact = () => {
           >
             Feel free to reach out to me for any questions or opportunities!
           </Desc>
-          <ContactForm onSubmit={handelSubmit} ref={form}>
+          <ContactForm onSubmit={handleSubmit} aria-busy={isSending}>
             <ContactTitle>Email Me 🚀</ContactTitle>
             <ContactInput
                 placeholder="Your Email"
                 name="from_email"
                 type="email"
+                readOnly={isSending}
                 required
             />
             <ContactInput
                 placeholder="Your Name"
                 name="from_name"
                 type="text"
+                readOnly={isSending}
                 required
             />
             <ContactInput
                 placeholder="Subject"
                 name="subject"
                 type="text"
+                readOnly={isSending}
                 required
             />
             <ContactInputMessage
                 placeholder="Message"
                 name="message"
                 rows={4}
+                readOnly={isSending}
                 required
             />
-            <ContactButton type="submit" sent={sent} disabled={isDisabled}>
-              {sent ? "Sent" : "Send"}
+            <ContactButton type="submit" disabled={isSending}>
+              {isSending ? "Sending…" : "Send"}
             </ContactButton>
           </ContactForm>
         </Wrapper>

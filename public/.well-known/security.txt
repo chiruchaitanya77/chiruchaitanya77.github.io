@@ -1,0 +1,5 @@
+Contact: https://chiruchaitanya77.github.io/#Contact
+Expires: 2027-11-01T00:00:00Z
+Preferred-Languages: en
+Canonical: https://chiruchaitanya77.github.io/.well-known/security.txt
+Canonical: https://chirus-portfolio.netlify.app/.well-known/security.txt

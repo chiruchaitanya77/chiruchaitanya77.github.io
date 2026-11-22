@@ -4,7 +4,7 @@ import "react-vertical-timeline-component/style.min.css";
 import styled from "styled-components";
 import { education } from "../../data/constants";
 import EducationCard from "../cards/EducationCard";
-//import EarthCanvas from "../canvas/Earth";
+import EarthCanvas from "../canvas/Earth";
 
 const Container = styled.div`
   display: flex;
@@ -29,7 +29,7 @@ const Wrapper = styled.div`
     flex-direction: column;
   }
 `;
-const Title = styled.div`
+const Title = styled.h2`
   font-size: 52px;
   text-align: center;
   font-weight: 600;
@@ -50,7 +50,6 @@ const Desc = styled.div`
   }
 `;
 
-
 const Education = () => {
   return (
     <Container id="Education">
@@ -70,7 +69,7 @@ const Education = () => {
             <EducationCard key={`education-${index}`} education={education} />
           ))}
         </VerticalTimeline>
-       {/*<EarthCanvas />*/}
+        <EarthCanvas />
       </Wrapper>
     </Container>
   );

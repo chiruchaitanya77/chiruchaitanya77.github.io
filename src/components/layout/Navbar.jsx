@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {Link, Link as LinkR} from "react-router-dom";
 import styled, { useTheme } from "styled-components";
-import { Bio } from "../data/constants";
+import { Bio } from "../../data/constants";
 import { MenuRounded } from "@mui/icons-material";
 import { FiSun, FiMoon } from "react-icons/fi";
 
@@ -65,7 +65,7 @@ const ThemeToggleButton = styled.button`
   &:hover {
     transform: scale(1.2);
   }
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     font-size: 16px;
   }
 `;
@@ -79,7 +79,7 @@ const NavItems = styled.ul`
   padding: 0 6px;
   list-style: none;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     display: none;
   }
 `;
@@ -104,14 +104,14 @@ const ButtonContainer = styled.div`
   justify-content: end;
   align-items: center;
   padding: 0 6px;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     display: none;
   }
 `;
 
 const BtnContainer = styled.div`
   margin-left: 5%;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     display: none;
   }
 `;
@@ -143,7 +143,7 @@ const MobileIcon = styled.div`
   align-items: center;
   color: ${({ theme }) => theme.text_primary};
   display: none;
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     display: block;
   }
 `;
@@ -189,6 +189,7 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
           <NavLink href="#Skills">Skills</NavLink>
           <NavLink href="#Experience">Experience</NavLink>
           <NavLink href="#Projects">Projects</NavLink>
+          <NavLink href="#Freelance">Freelance</NavLink>
           <NavLink href="#Certificates">Certificates</NavLink>
           <NavLink href="#Education">Education</NavLink>
         </NavItems>
@@ -199,6 +200,7 @@ const Navbar = ({ toggleTheme, isDarkTheme }) => {
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Skills">Skills</NavLink>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Experience">Experience</NavLink>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Projects">Projects</NavLink>
+            <NavLink onClick={() => setIsOpen(false)} href="#Freelance">Freelance</NavLink>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Certificates">Certificates</NavLink>
             <NavLink onClick={() => setIsOpen(!isOpen)} href="#Education">Education</NavLink>
             <GithubButton

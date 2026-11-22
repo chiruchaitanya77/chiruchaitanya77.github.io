@@ -11,10 +11,6 @@
 # production
 /build
 
-#temp folders
-/education
-/experience
-
 # misc
 .DS_Store
 .env.local

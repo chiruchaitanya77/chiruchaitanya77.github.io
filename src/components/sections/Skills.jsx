@@ -26,7 +26,7 @@ const Wrapper = styled.div`
     flex-direction: column;
   }
 `;
-const Title = styled.div`
+const Title = styled.h2`
   font-size: 52px;
   text-align: center;
   font-weight: 600;
@@ -112,8 +112,10 @@ const SkillItem = styled.div`
   }
 `;
 const SkillImage = styled.img`
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
+  flex: none;
+  object-fit: contain;
 `;
 
 const Skills = () => {
@@ -131,14 +133,14 @@ const Skills = () => {
         </Desc>
 
         <SkillsContainer>
-          {skills.map((skill, index) => (
-            <Tilt>
-              <Skill key={`skill-${index}`}>
+          {skills.map((skill) => (
+            <Tilt key={skill.title}>
+              <Skill>
                 <SkillTitle>{skill.title}</SkillTitle>
                 <SkillList>
-                  {skill.skills.map((item, index_x) => (
-                    <SkillItem key={`skill-x-${index_x}`}>
-                      <SkillImage src={item.image} />
+                  {skill.skills.map((item) => (
+                    <SkillItem key={item.name}>
+                      <SkillImage src={`${process.env.PUBLIC_URL}/${item.image}`} alt="" />
                       {item.name}
                     </SkillItem>
                   ))}

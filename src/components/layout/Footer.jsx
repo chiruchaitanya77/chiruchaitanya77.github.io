@@ -1,11 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { Bio } from "../../data/constants";
-import {
-  FacebookRounded, GitHub,
-  Instagram,
-  LinkedIn,
-} from "@mui/icons-material";
+import { Bio, socialLinks } from "../../data/constants";
+import SocialIcon from "../SocialIcon";
 
 const FooterContainer = styled.div`
   width: 100%;
@@ -89,25 +85,22 @@ const Footer = () => {
           <NavLink href="#Skills">Skills</NavLink>
           {/*<NavLink href="#Experience">Experience</NavLink>*/}
           <NavLink href="#Projects">Projects</NavLink>
+          <NavLink href="#Freelance">Freelance</NavLink>
           <NavLink href="#Certificates">Certificates</NavLink>
           <NavLink href="#Education">Education</NavLink>
         </Nav>
         <SocialMediaIcons>
-          <SocialMediaIcon href={Bio.facebook} target="display">
-            <FacebookRounded />
-          </SocialMediaIcon>
-          {/*<SocialMediaIcon href={Bio.twitter} target="display">*/}
-          {/*  <Twitter />*/}
-          {/*</SocialMediaIcon>*/}
-          <SocialMediaIcon href={Bio.linkedin} target="display">
-            <LinkedIn />
-          </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.insta} target="display">
-            <Instagram />
-          </SocialMediaIcon>
-          <SocialMediaIcon href={Bio.github} target="display">
-            <GitHub/>
-          </SocialMediaIcon>
+          {socialLinks.map(({ platform, href }) => (
+            <SocialMediaIcon
+              key={platform}
+              href={href}
+              aria-label={`${Bio.name} on ${platform}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <SocialIcon $platform={platform} />
+            </SocialMediaIcon>
+          ))}
         </SocialMediaIcons>
         <Copyright>&copy; 2025 Chiru Chaitanya. All rights reserved.</Copyright>
       </FooterWrapper>

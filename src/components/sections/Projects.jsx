@@ -1,8 +1,8 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { projects } from "../../data/constants";
 import ProjectCard from "../cards/ProjectCard";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Container = styled.div`
   display: flex;
@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   }
 `;
 
-const Title = styled.div`
+const Title = styled.h2`
   font-size: 52px;
   text-align: center;
   font-weight: 600;
@@ -98,10 +98,6 @@ const CardContainer = styled.div`
 const Projects = ({ openModal, setOpenModal }) => {
   const [toggle, setToggle] = useState("all");
 
-  // Track when the container is 60% visible
-  const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.2 }); // Trigger animation at 40%
-
   return (
       <Container id="Projects">
         <Wrapper>
@@ -137,11 +133,10 @@ const Projects = ({ openModal, setOpenModal }) => {
             </ToggleButton>
           </ToggleButtonGroup>
 
-          {/* Animate the entire CardContainer when 60% in view */}
           <motion.div
-              ref={ref}
-              initial={{ opacity: 0, y: 50 }} // Initially hidden
-              animate={isInView ? { opacity: 1, y: 0 } : {}} // Animate when in view
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <CardContainer>

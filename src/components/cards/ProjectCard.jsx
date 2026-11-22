@@ -1,13 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import { Tilt } from "react-tilt";
+import { trackEvent } from "../../utils/analytics";
 
-const Card = styled.div`
-  width: 330px;
-  height: 490px;
+const Card = styled.button`
+  width: min(330px, calc(100vw - 48px));
+  border: 0;
+  font: inherit;
+  text-align: left;
+  min-height: 490px;
   font-weight: 600;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   color: ${({ theme }) => theme.text_secondary};
   background-color: ${({ theme }) => theme.card};
@@ -26,13 +29,15 @@ const Card = styled.div`
   }
 `;
 const Image = styled.img`
+  flex: none;
   width: 100%;
   height: 180px;
+  object-fit: contain;
   background-color: ${({ theme }) => theme.white};
   border-radius: 10px;
   box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
 `;
-const Tags = styled.div`
+const Tags = styled.span`
   width: 100%;
   display: flex;
   align-items: center;
@@ -40,7 +45,7 @@ const Tags = styled.div`
   gap: 8px;
   margin-top: 4px;
 `;
-const Tag = styled.div`
+const Tag = styled.span`
   font-size: 12px;
   font-weight: 400;
   color: ${({ theme }) => theme.primary};
@@ -48,14 +53,14 @@ const Tag = styled.div`
   padding: 2px 8px;
   border-radius: 10px;
 `;
-const Details = styled.div`
+const Details = styled.span`
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0px;
   padding: 0px 2px;
 `;
-const Title = styled.div`
+const Title = styled.span`
   font-size: 20px;
   font-weight: 600;
   color: ${({ theme }) => theme.text_secondary};
@@ -67,7 +72,7 @@ const Title = styled.div`
   overflow: hidden;
   text-overflow: ellipsis;
 `;
-const Date = styled.div`
+const Date = styled.span`
   font-size: 12px;
   margin-left: 2px;
   font-weight: 400;
@@ -76,9 +81,9 @@ const Date = styled.div`
     font-size: 10px;
   }
 `;
-const Description = styled.div`
+const Description = styled.span`
   font-weight: 400;
-  color: ${({ theme }) => theme.text_secondary + 99};
+  color: ${({ theme }) => theme.text_secondary};
   overflow: hidden;
   margin-top: 8px;
   display: -webkit-box;
@@ -87,7 +92,7 @@ const Description = styled.div`
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 `;
-const Members = styled.div`
+const Members = styled.span`
   display: flex;
   align-items: center;
   padding-left: 10px;
@@ -101,35 +106,41 @@ const Avatar = styled.img`
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border: 3px solid ${({ theme }) => theme.card};
 `;
-// const Button = styled.a`
-//   color: ${({ theme }) => theme.primary};
-//   text-decoration: none;
-//   font-weight: 600;
-//   text-align: center;
-// `;
-
 const ProjectCard = ({ project, setOpenModal }) => {
+  const openDetails = () => {
+    setOpenModal({ state: true, project });
+    trackEvent("select_content", {
+      content_type: project.sector ? "freelance_project" : "project",
+      content_id: project.title,
+    });
+  };
+
   return (
-    <Tilt>
-    <Card onClick={() => setOpenModal({ state: true, project: project })}>
-      <Image src={project.image} />
-      <Tags>
-        {project.tags?.map((tag, index) => (
-          <Tag>{tag}</Tag>
-        ))}
-      </Tags>
-      <Details>
-        <Title>{project.title}</Title>
-        <Date>{project.date}</Date>
-        <Description>{project.description}</Description>
-      </Details>
-      <Members>
-        {project.member?.map((member) => (
-          <Avatar src={member.img} />
-        ))}
-      </Members>
-      <div style={{ letterSpacing: '3px',color: '#555' }}>Explore the Details</div>
-    </Card>
+    <Tilt style={{ display: "flex", alignSelf: "stretch" }}>
+      <Card
+        type="button"
+        aria-label={`Explore details for ${project.title}`}
+        aria-haspopup="dialog"
+        onClick={openDetails}
+      >
+        <Image src={project.image} alt="" />
+        <Tags>
+          {project.tags?.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+        </Tags>
+        <Details>
+          <Title>{project.title}</Title>
+          <Date>{project.sector || project.date}</Date>
+          <Description>{project.description}</Description>
+        </Details>
+        {project.member && (
+          <Members>
+            {project.member.map((member) => (
+              <Avatar key={member.name} src={member.img} alt={member.name} />
+            ))}
+          </Members>
+        )}
+        <span style={{ marginTop: "auto", letterSpacing: "2px", textAlign: "center" }}>Explore the Details</span>
+      </Card>
     </Tilt>
   );
 };

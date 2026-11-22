@@ -1,0 +1,27 @@
+{
+  "short_name": "Chiru Chaitanya",
+  "name": "Chiru Chaitanya’s Developer Portfolio",
+  "icons": [
+    {
+      "src": "favicon.ico?v=20261123",
+      "sizes": "16x16 32x32 48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "branding/logo192.png?v=20261123",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "branding/logo512.png?v=20261123",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#090917",
+  "background_color": "#ffffff"
+}
