@@ -27,6 +27,7 @@ import documentQaImage from "../assets/projects/document-qa.webp";
 import bigFishImage from "../assets/projects/freelance/big-fish.webp";
 import shakeCrazyImage from "../assets/projects/freelance/shake-crazy.webp";
 import mbncImage from "../assets/projects/freelance/mbnc.webp";
+import oneDocImage from "../assets/projects/freelance/onedoc-homecare.webp";
 
 export const Bio = {
   name: "Chiru Chaitanya",
@@ -344,6 +345,20 @@ export const freelanceProjects = [
     ],
     image: mbncImage,
     webapp: "https://mbnc-396jpyx9s-chirus-projects-3a155289.vercel.app/",
+  },
+  {
+    title: "OneDoc HomeCare",
+    sector: "Home healthcare",
+    description: "I built a home healthcare website where visitors can compare services and plan a doctor’s visit around their schedule.",
+    implementation: "I designed the booking form around the details a home visit needs. Choosing a service sets the displayed fee, and a calendar and time-slot picker capture when the visitor wants the appointment. The form checks the required details before showing a confirmation.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    highlights: [
+      "Visitors can compare options such as general consultation, chronic care, and elderly care before opening the booking form.",
+      "The form collects the visit address and a nearby landmark alongside the preferred date and time.",
+      "An appointment dashboard uses sample visits to show how patients can review the service, doctor, payment status, and location together.",
+    ],
+    image: oneDocImage,
+    webapp: "https://onedoc-homecare.netlify.app/",
   },
 ];
 
