@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import ProjectCard from "../cards/ProjectCard";
 import styled from "styled-components";
-import { freelanceProjects } from "../../data/constants";
+import { freelanceIntro, freelanceProjects } from "../../data/constants";
 
 const Section = styled.section`
   position: relative;
@@ -37,7 +37,7 @@ export default function Freelance({ setOpenModal }) {
   return (
     <Section id="Freelance" aria-labelledby="freelance-title">
       <h2 id="freelance-title">Freelance Projects</h2>
-      <Intro>I build websites around what each business needs its visitors to do, from finding a food truck to requesting a construction quote.</Intro>
+      <Intro>{freelanceIntro}</Intro>
       <Grid
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -303,45 +303,71 @@ export const projects = [
   }
 ];
 
+export const freelanceIntro = "Explore how clients use these websites to cast a production, guide customers to a food truck, prepare a construction quote or plan a home visit.";
+
 export const freelanceProjects = [
   {
     title: "The Big Fish Collectives",
-    implementation: "Applications and casting briefs share a form-validation layer and go into Cloudflare D1. The site saves each enquiry before sending email, so the team still has a record if a notification fails. The dashboard keeps the submitted brief and its status history together for follow-up.",
     sector: "Casting & talent representation",
-    description: "I built a website for a Hyderabad talent collective where actors and crew can apply for representation and producers can submit a casting brief.",
+    description: "Actors can apply for representation, and producers can tell the Hyderabad casting team who they need for a shoot.",
     tags: ["React", "TypeScript", "Cloudflare Workers", "D1"],
-    highlights: [
-      "Actors and crew can send a portfolio or showreel with their application for representation.",
-      "A separate brief lets producers describe the role, shoot dates, location, and budget so the collective can shortlist people who fit.",
-      "The team can review incoming enquiries in one dashboard and track each from receipt to closure.",
+    detailSections: [
+      {
+        title: "For actors and crew",
+        text: "An actor can send a showreel, while a writer, director or crew member can share a portfolio. Applicants choose their discipline, say where they work and introduce themselves. The collective gets the work samples and contact details together when it reviews an application.",
+      },
+      {
+        title: "For producers planning a shoot",
+        text: "A producer can send a separate project brief for a film, an ad or a live production. There’s room to describe the roles, shoot location, dates and budget, and to link references so the casting team knows what to look for.",
+      },
+      {
+        title: "How the collective follows up",
+        text: "The team can open the original enquiry, review the work or brief, and see whether it is new, under review or closed. Each enquiry is saved before the email notice goes out, so the team can still find it if the notice fails.",
+      },
     ],
     image: bigFishImage,
     webapp: "https://big-fish-collective.bigfishcollective.workers.dev/",
   },
   {
     title: "Shake Crazy",
-    implementation: "The truck changes location, so the homepage connects its directions button and map to the team’s latest check-in. When coordinates are available the map uses the pin directly, and a written location can also be used for directions. The page shows the truck’s typical hours alongside the map.",
     sector: "Food truck",
-    description: "I built a site where customers can find the truck, filter the menu by category or dietary preference, and try their timing in a stopwatch challenge.",
+    description: "Customers can see where Shake Crazy is parked, check prices and decide what to order before they head out.",
     tags: ["React", "TypeScript", "Express", "GSAP"],
-    highlights: [
-      "Customers can narrow the menu by food category and vegetarian or non-vegetarian options. Unavailable items stay out of the results.",
-      "The truck’s team can update the location and menu from an admin dashboard, so customers can check both before heading out.",
-      "A daily game challenges visitors to stop a timer at ten seconds. A winners list records successful attempts.",
+    detailSections: [
+      {
+        title: "Finding the truck",
+        text: "The location page shows the team’s latest check-in alongside the truck’s usual hours. Customers can open directions to that spot. When the crew hasn’t shared a location yet, the map tells visitors it’s waiting for a check-in.",
+      },
+      {
+        title: "Deciding what to order",
+        text: "Someone looking for a vegetarian lunch can narrow the menu to vegetarian items and then browse a category, such as burgers. Each listing shows the price, and the menu leaves out items the crew has marked unavailable.",
+      },
+      {
+        title: "Keeping up with a moving kitchen",
+        text: "When the truck moves or a dish sells out, the crew can change the location or menu themselves. There’s also a daily stopwatch game for customers to try while they wait. Stop it at ten seconds to earn a place on the winners list.",
+      },
     ],
     image: shakeCrazyImage,
     webapp: "https://meek-twilight-96f4de.netlify.app/",
   },
   {
     title: "MBNC Private Limited",
-    implementation: "I connected the public quote form to a searchable list for the office. Each submission captures contact details and a written project description alongside the site and budget, giving the team the information it needs for a first conversation. The form validates required fields before sending the request.",
     sector: "Construction & infrastructure",
-    description: "I built a project showcase and quote request form so prospective clients can explore the company’s residential, commercial, and industrial work before sharing their own plans.",
+    description: "Homeowners and businesses can explore similar builds and ask MBNC for a quote tailored to their site.",
     tags: ["Next.js", "TypeScript", "GSAP"],
-    highlights: [
-      "Visitors can filter the project gallery by residential, commercial, or industrial work and see where each build took place.",
-      "The quote form asks for the type of construction and site location, with room to share a budget and preferred timeline.",
-      "The office can search incoming quote requests and filter by project type or status when following up with prospective clients.",
+    detailSections: [
+      {
+        title: "Choosing a builder",
+        text: "A homeowner can start with residential work, while a business planning a facility can browse commercial or industrial projects. The gallery pairs each build with its location, giving prospective clients specific examples to discuss with MBNC.",
+      },
+      {
+        title: "Preparing a quote request",
+        text: "Clients can describe what they want to build, where the site is and how large the plot is. They can select the services they need and include a budget or target date if they have one. That gives the first conversation a starting point even when plans are still taking shape.",
+      },
+      {
+        title: "Following up from the office",
+        text: "Office staff can search requests and narrow the list by project type or quote status. Opening a request brings the client’s contact details, site information and original description together, so whoever makes the next call has the same brief.",
+      },
     ],
     image: mbncImage,
     webapp: "https://mbnc-396jpyx9s-chirus-projects-3a155289.vercel.app/",
@@ -349,13 +375,21 @@ export const freelanceProjects = [
   {
     title: "OneDoc HomeCare",
     sector: "Home healthcare",
-    description: "I built a home healthcare website where visitors can compare services and plan a doctor’s visit around their schedule.",
-    implementation: "I designed the booking form around the details a home visit needs. Choosing a service sets the displayed fee, and a calendar and time-slot picker capture when the visitor wants the appointment. The form checks the required details before showing a confirmation.",
+    description: "Families can explore home-care services, see what a visit costs and plan a time that works for the patient.",
     tags: ["React", "TypeScript", "Tailwind CSS", "Vite"],
-    highlights: [
-      "Visitors can compare options such as general consultation, chronic care, and elderly care before opening the booking form.",
-      "The form collects the visit address and a nearby landmark alongside the preferred date and time.",
-      "An appointment dashboard uses sample visits to show how patients can review the service, doctor, payment status, and location together.",
+    detailSections: [
+      {
+        title: "Choosing care for a family member",
+        text: "A family arranging a home visit can compare general consultations, chronic care and elderly care. Service descriptions explain what each visit includes, and the booking flow shows the fee for the selected service.",
+      },
+      {
+        title: "Planning the visit",
+        text: "The booking form lets families choose a date and time, enter the home address and add arrival instructions. Before confirming, they can review the patient details, service, location and total fee together and go back to change a detail.",
+      },
+      {
+        title: "Seeing the day from both sides",
+        text: "Sample appointments show families how to check a visit’s time, location and status. Doctors have a separate view of the day’s visits, with patient details and addresses together so they can see whom they would visit next and where to go.",
+      },
     ],
     image: oneDocImage,
     webapp: "https://onedoc-homecare.netlify.app/",

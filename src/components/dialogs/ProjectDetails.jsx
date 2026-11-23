@@ -226,11 +226,19 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
             <Image src={project.image} alt="" onError={(event) => { event.currentTarget.hidden = true; }} />
             <div>
               <Desc>{project.description}</Desc>
-              <Tags aria-label="Technologies">
-                {project.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
-              </Tags>
+              {!project.sector && (
+                <Tags aria-label="Technologies">
+                  {project.tags.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+                </Tags>
+              )}
             </div>
           </Overview>
+          {project.detailSections?.map(({ title, text }) => (
+            <section key={title}>
+              <Label as="h3">{title}</Label>
+              <Desc>{text}</Desc>
+            </section>
+          ))}
           {project.implementation && (
             <>
               <Label as="h3">How it works</Label>
@@ -279,7 +287,9 @@ const ProjectDetails = ({ openModal, setOpenModal }) => {
               <Button href={project.github} target="_blank" rel="noopener noreferrer">View Code</Button>
             )}
             {project.webapp && (
-              <Button href={project.webapp} target="_blank" rel="noopener noreferrer">View Live App</Button>
+              <Button href={project.webapp} target="_blank" rel="noopener noreferrer">
+                {project.sector ? "Visit website" : "View Live App"}
+              </Button>
             )}
           </ButtonGroup>
         </Wrapper>

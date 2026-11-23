@@ -122,9 +122,11 @@ const ProjectCard = ({ project, setOpenModal }) => {
         onClick={openDetails}
       >
         <Image src={project.image} alt="" />
-        <Tags>
-          {project.tags?.map((tag) => <Tag key={tag}>{tag}</Tag>)}
-        </Tags>
+        {!project.sector && (
+          <Tags>
+            {project.tags?.map((tag) => <Tag key={tag}>{tag}</Tag>)}
+          </Tags>
+        )}
         <Details>
           <Title>{project.title}</Title>
           <Date>{project.sector || project.date}</Date>
